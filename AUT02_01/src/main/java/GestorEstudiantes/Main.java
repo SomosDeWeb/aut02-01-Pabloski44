@@ -81,7 +81,9 @@ public class Main {
                 System.out.println("No hay estudiantes registrados.");
             } else{
                 System.out.println("Lista de estudiantes: ");
-
+                for (Alumnos alumno : listaEstudiantes){
+                    System.out.print(alumno);
+                }
             }
         }
     }
