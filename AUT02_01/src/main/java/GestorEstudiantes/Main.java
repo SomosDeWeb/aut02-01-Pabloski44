@@ -1,4 +1,5 @@
-package org.example;
+package GestorEstudiantes;
+
 import java.util.Scanner;
 
 public class Main {
