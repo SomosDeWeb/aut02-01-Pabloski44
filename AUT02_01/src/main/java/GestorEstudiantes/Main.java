@@ -38,7 +38,7 @@ public class Main {
                         buscarPorNombre(sc); // Buscar por nombre
                         break;
                     case 4:
-                        // Calcular media
+                        calcularMediaGeneral(); // Calcular media
                         break;
                     case 5:
                         // Mejor estudiante
@@ -105,5 +105,21 @@ public class Main {
             if (!encontrado) {
                 System.out.println("No se encontró ningun alumno con el nombre de: " + nombreBuscado);
             }
+        }
+
+        //Calculando media
+        private static void calcularMediaGeneral() {
+            if (listaEstudiantes.isEmpty()) {
+                System.out.println("No hay alumnos registrados para calcular la nota media.");
+                return;
+            }
+
+            double suma = 0;
+            for (Alumnos alumno : listaEstudiantes) {
+                suma += alumno.getNotaMedia();
+            }
+
+            double media = suma / listaEstudiantes.size(); //Como es nota media tenemos que hacer el calculo dividiendo entre la cantidad de alumnos por eso el uso del .size
+            System.out.printf("La nota media general de todos los estudiantes es : %.2f%n", media); //% indica valor .2 limite de decimales a 2 y f numero con decimales.
         }
     }
