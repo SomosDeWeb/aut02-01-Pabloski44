@@ -32,7 +32,7 @@ public class Main {
                         añadirEstudiante(sc);  // Añadir estudiante
                         break;
                     case 2:
-                        // Listar estudiantes
+                         listarEstudiantes(); // Listar estudiantes
                         break;
                     case 3:
                         // Buscar por nombre
@@ -55,7 +55,7 @@ public class Main {
         //Añadir Alumno
 
         private static void añadirEstudiante(Scanner sc) {
-            System.out.println("Introduce nombre: ");
+            System.out.print("Introduce nombre: ");
             String nombre = sc.nextLine();
 
             System.out.print("Introduce edad: ");
@@ -67,8 +67,21 @@ public class Main {
             System.out.print("¿Está matriculado? (true/false): ");
             boolean matriculado = sc.nextBoolean();
 
+            sc.nextLine();
+
             Alumnos nuevo = new Alumnos(nombre, edad, notaMedia, matriculado);
             listaEstudiantes.add(nuevo);
             System.out.println("Estudiante añadido correctamente. ");
+        }
+
+        //Listar Alumnado
+
+        private static void listarEstudiantes(){
+            if (listaEstudiantes.isEmpty()){
+                System.out.println("No hay estudiantes registrados.");
+            } else{
+                System.out.println("Lista de estudiantes: ");
+
+            }
         }
     }
