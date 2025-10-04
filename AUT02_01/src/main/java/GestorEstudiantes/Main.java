@@ -1,8 +1,12 @@
 package GestorEstudiantes;
 
 import java.util.Scanner;
+import models.Alumnos;
+import java.util.ArrayList;
 
 public class Main {
+    private static ArrayList<Alumnos> listaEstudiantes = new ArrayList<>();  //Array para guardar alumnos
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         printMainMenu(sc);
@@ -25,7 +29,7 @@ public class Main {
 
                 switch (opcion) {
                     case 1:
-                        // Añadir estudiante
+                        añadirEstudiante(sc);  // Añadir estudiante
                         break;
                     case 2:
                         // Listar estudiantes
@@ -46,5 +50,25 @@ public class Main {
                         System.out.println("Opción no válida, inténtelo de nuevo.");
                 }
             } while (opcion != 6);
+        }
+
+        //Añadir Alumno
+
+        private static void añadirEstudiante(Scanner sc) {
+            System.out.println("Introduce nombre: ");
+            String nombre = sc.nextLine();
+
+            System.out.print("Introduce edad: ");
+            int edad = sc.nextInt();
+
+            System.out.print("Introduce nota media: ");
+            double notaMedia = sc.nextDouble();
+
+            System.out.print("¿Está matriculado? (true/false): ");
+            boolean matriculado = sc.nextBoolean();
+
+            Alumnos nuevo = new Alumnos(nombre, edad, notaMedia, matriculado);
+            listaEstudiantes.add(nuevo);
+            System.out.println("Estudiante añadido correctamente. ");
         }
     }
