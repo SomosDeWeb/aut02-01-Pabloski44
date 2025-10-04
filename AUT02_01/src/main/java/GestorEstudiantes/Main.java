@@ -35,7 +35,7 @@ public class Main {
                          listarEstudiantes(); // Listar estudiantes
                         break;
                     case 3:
-                        // Buscar por nombre
+                        buscarPorNombre(sc); // Buscar por nombre
                         break;
                     case 4:
                         // Calcular media
@@ -84,6 +84,26 @@ public class Main {
                 for (Alumnos alumno : listaEstudiantes){
                     System.out.print(alumno);
                 }
+            }
+        }
+
+        //Buscar por nombre de alumnado
+
+        private static void buscarPorNombre(Scanner sc) {
+        System.out.print("Introduce el nombre del alumnado que estas buscando: ");
+        String nombreBuscado = sc.nextLine();
+
+        boolean encontrado = false;
+        for (Alumnos alumno : listaEstudiantes) {
+            if (alumno.getNombre().equalsIgnoreCase(nombreBuscado)){
+                System.out.println("Estudiante encontrado: " + alumno);
+                encontrado = true;
+                break;
+            }
+        }
+        //if por fuera y no else porque si no cada vez que no encuentre imprimiria el error por cada alumno que recorra 10 alumnos = 10 no se encontro
+            if (!encontrado) {
+                System.out.println("No se encontró ningun alumno con el nombre de: " + nombreBuscado);
             }
         }
     }
