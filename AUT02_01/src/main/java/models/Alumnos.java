@@ -51,5 +51,8 @@ public class Alumnos {
         this.matriculado = matriculado;
     }
 
-
+    @Override
+    public String toString(){
+        return nombre + " (" + edad + "años) - Nota media: " + notaMedia + " - Matricula " + matriculado;
+    }
 }

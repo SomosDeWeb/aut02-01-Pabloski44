@@ -41,7 +41,7 @@ public class Main {
                         calcularMediaGeneral(); // Calcular media
                         break;
                     case 5:
-                        // Mejor estudiante
+                         mostrarMejorEstudiante(); // Mejor estudiante
                         break;
                     case 6:
                         System.out.println("Saliendo del programa...");
@@ -121,5 +121,22 @@ public class Main {
 
             double media = suma / listaEstudiantes.size(); //Como es nota media tenemos que hacer el calculo dividiendo entre la cantidad de alumnos por eso el uso del .size
             System.out.printf("La nota media general de todos los estudiantes es : %.2f%n", media); //% indica valor .2 limite de decimales a 2 y f numero con decimales.
+        }
+
+        //Mejor alumno segun su nota
+        private static void mostrarMejorEstudiante() {
+        if (listaEstudiantes.isEmpty()) {
+            System.out.println("No hay estudiantes registrados aun para poder comparar sus notas.");
+            return;
+        }
+
+        Alumnos mejor = listaEstudiantes.get(0); //referencia para empezar desde el primero
+            for (Alumnos alumno : listaEstudiantes){
+                if (alumno.getNotaMedia() > mejor.getNotaMedia()) {
+                    mejor = alumno;
+                }
+            }
+            System.out.println("\nEl estudiante con la mejor nota es: ");
+            System.out.println(mejor);
         }
     }
