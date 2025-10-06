@@ -33,6 +33,7 @@ public class Main {
                         break;
                     case 2:
                          listarEstudiantes(); // Listar estudiantes
+
                         break;
                     case 3:
                         buscarPorNombre(sc); // Buscar por nombre
@@ -108,6 +109,7 @@ public class Main {
         }
 
         //Calculando media
+
         private static void calcularMediaGeneral() {
             if (listaEstudiantes.isEmpty()) {
                 System.out.println("No hay alumnos registrados para calcular la nota media.");
@@ -119,11 +121,12 @@ public class Main {
                 suma += alumno.getNotaMedia();
             }
 
-            double media = suma / listaEstudiantes.size(); //Como es nota media tenemos que hacer el calculo dividiendo entre la cantidad de alumnos por eso el uso del .size
-            System.out.printf("La nota media general de todos los estudiantes es : %.2f%n", media); //% indica valor .2 limite de decimales a 2 y f numero con decimales.
+            double media = suma / (double)listaEstudiantes.size(); //Como es nota media tenemos que hacer el calculo dividiendo entre la cantidad de alumnos por eso el uso del .size
+            System.out.printf("La nota media general de todos los estudiantes es : " + media); //% indica valor .2 limite de decimales a 2 y f numero con decimales.
         }
 
         //Mejor alumno segun su nota
+
         private static void mostrarMejorEstudiante() {
         if (listaEstudiantes.isEmpty()) {
             System.out.println("No hay estudiantes registrados aun para poder comparar sus notas.");
@@ -139,4 +142,5 @@ public class Main {
             System.out.println("\nEl estudiante con la mejor nota es: ");
             System.out.println(mejor);
         }
+
     }
